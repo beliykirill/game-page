@@ -10,5 +10,6 @@ declare module 'styled-components' {
     textPlaceholder: string;
     textPrimary: string;
     textLabel: string;
+    textSecondary: string;
   }
 }

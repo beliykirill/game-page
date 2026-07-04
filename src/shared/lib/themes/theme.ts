@@ -9,4 +9,5 @@ export const theme: DefaultTheme = {
   textPlaceholder: '#9E9DA4',
   textPrimary: '#36394A',
   textLabel: '#6E7076',
+  textSecondary: '#33363E',
 };

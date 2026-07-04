@@ -3,7 +3,9 @@ import type { GetStaticProps } from 'next';
 import Head from 'next/head';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { Footer } from 'widgets/footer';
 import { Header } from 'widgets/header';
+import { Main } from 'widgets/main';
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
@@ -30,6 +32,10 @@ const HomePage: FC<HomePageProps> = () => {
       </Head>
 
       <Header />
+
+      <Main />
+
+      <Footer />
     </>
   );
 };
