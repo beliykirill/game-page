@@ -1,0 +1,67 @@
+module.exports = {
+  env: {
+    browser: true,
+    es2021: true,
+  },
+  extends: [
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:prettier/recommended',
+    'next/core-web-vitals',
+  ],
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+  },
+  plugins: ['react', 'react-hooks', '@typescript-eslint', 'prettier', 'import', 'unused-imports'],
+  rules: {
+    'prettier/prettier': 'error',
+    'import/order': [
+      'error',
+      {
+        groups: ['builtin', 'external', 'internal', 'parent', ['sibling', 'index']],
+        pathGroups: [
+          { pattern: 'react{,/**}', group: 'external', position: 'before' },
+          { pattern: 'next{,/**,-*,-*/**}', group: 'external', position: 'before' },
+          { pattern: 'widgets/**', group: 'internal', position: 'before' },
+          { pattern: 'features/**', group: 'internal', position: 'before' },
+          { pattern: 'entities/**', group: 'internal', position: 'before' },
+          { pattern: 'shared/**', group: 'internal' },
+        ],
+        pathGroupsExcludedImportTypes: ['builtin'],
+        'newlines-between': 'never',
+        alphabetize: { order: 'asc', caseInsensitive: true },
+      },
+    ],
+    'import/no-duplicates': 'error',
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': 'off',
+    'unused-imports/no-unused-imports': 'error',
+    'unused-imports/no-unused-vars': ['warn', { vars: 'all', varsIgnorePattern: '^_', args: 'after-used', argsIgnorePattern: '^_' }],
+    'react-hooks/exhaustive-deps': 'off',
+    'linebreak-style': ['error', 'unix'],
+    quotes: ['error', 'single'],
+    semi: ['error', 'always'],
+    'comma-dangle': ['error', 'always-multiline'],
+    'no-empty': 'error',
+    'no-case-declarations': 'error',
+    'no-console': 'error',
+    'react-hooks/rules-of-hooks': 'off',
+    'no-prototype-builtins': 'error',
+    'react/react-in-jsx-scope': 'off',
+    'spaced-comment': 'error',
+    'no-duplicate-imports': 'off',
+    '@typescript-eslint/no-non-null-asserted-optional-chain': 'off',
+  },
+  settings: {
+    'import/internal-regex': '^(features|entities|widgets|shared)/',
+    react: {
+      version: 'detect',
+    },
+    'import/resolver': {
+      typescript: {},
+    },
+  },
+};

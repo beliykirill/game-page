@@ -1,0 +1,53 @@
+{
+  "meta": {
+    "title": "Купить робуксы для Roblox — биржа Starvell",
+    "description": "Купите робуксы для Roblox быстро и безопасно на Starvell. Выгодные курсы, лоты под любой бюджет, мгновенная выдача и защищённая сделка."
+  },
+
+  "header": {
+    "search_placeholder": "Поиск игр и приложений...",
+    "support": {
+      "title": "Поддержка",
+      "items": [
+        {
+          "text": "Написать в поддержку",
+          "link": "/support"
+        },
+        {
+          "text": "Политика конфиденциальности",
+          "link": "/privacy"
+        },
+        {
+          "text": "Пользовательское соглашение",
+          "link": "/policy"
+        }
+      ]
+    },
+    "button_login": "Войти",
+    "button_registration": "Регистрация",
+    "languages": [
+      {
+        "text": "Русский",
+        "code": "ru"
+      },
+      {
+        "text": "Английский",
+        "code": "en"
+      }
+    ],
+    "currencies": [
+      {
+        "code": "rub",
+        "text": "RUB"
+      },
+      {
+        "code": "usd",
+        "text": "USD"
+      },
+      {
+        "code": "eur",
+        "text": "EUR"
+      }
+    ]
+  }
+}
