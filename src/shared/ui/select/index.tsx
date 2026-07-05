@@ -59,14 +59,13 @@ export const Select: FC<SelectProps> = ({
       )}
     >
       {(isOpen, handleChangeViewState) => (
-        <Layout $selectSize={selectSize}>
+        <Layout
+          $selectSize={selectSize}
+          $hasValue={Boolean(currentOption?.value)}
+        >
           {label && <MainText>{label}</MainText>}
 
-          <Container
-            $isOpen={isOpen}
-            $hasValue={Boolean(currentOption?.value)}
-            onClick={handleChangeViewState}
-          >
+          <Container $isOpen={isOpen} onClick={handleChangeViewState}>
             <MainText>{currentOption?.label || placeholder}</MainText>
 
             <img src="/static/images/common/arrows/chevron.svg" alt="" />

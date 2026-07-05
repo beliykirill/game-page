@@ -3,7 +3,7 @@ import { ifProp, switchProp } from 'styled-tools';
 import { color } from 'shared/lib/themes';
 import { MainText, secondaryTextStyle } from 'shared/ui/typography';
 
-export const Container = styled.div<{ $isOpen: boolean; $hasValue: boolean }>`
+export const Container = styled.div<{ $isOpen: boolean }>`
   height: 36px;
   padding: 0 12px;
   display: flex;
@@ -20,10 +20,6 @@ export const Container = styled.div<{ $isOpen: boolean; $hasValue: boolean }>`
 
   &:active {
     background-color: ${color('surfaceBackground')};
-  }
-
-  & > ${MainText} {
-    color: ${ifProp('$hasValue', color('textLabel'), color('textPlaceholder'))};
   }
 
   img {
@@ -51,13 +47,16 @@ export const Container = styled.div<{ $isOpen: boolean; $hasValue: boolean }>`
   }
 `;
 
-export const Layout = styled.div<{ $selectSize: 'default' | 'secondary' }>`
+export const Layout = styled.div<{
+  $selectSize: 'default' | 'secondary';
+  $hasValue: boolean;
+}>`
   display: flex;
   flex-direction: column;
   gap: 4px;
 
   & > ${MainText} {
-    color: ${color('textLabel')};
+    color: ${ifProp('$hasValue', color('textLabel'), color('textPlaceholder'))};
   }
 
   ${switchProp('$selectSize', {
