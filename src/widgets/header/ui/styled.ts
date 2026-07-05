@@ -140,7 +140,7 @@ export const LabelsContainer = styled.div`
   align-items: center;
 
   & > * + * {
-    margin-left: 16px;
+    margin-left: 24px;
   }
 
   ${media.tablet} {
@@ -149,7 +149,7 @@ export const LabelsContainer = styled.div`
 
     & > * + * {
       margin-left: 0;
-      margin-top: 12px;
+      margin-top: 16px;
     }
   }
 `;
