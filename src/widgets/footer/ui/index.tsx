@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import Link from 'next/link';
 import { Trans, useTranslation } from 'next-i18next';
-import { MainText, SecondaryText } from 'shared/ui';
+import { MainText, SecondaryText } from 'shared/ui/typography';
 import {
   Container,
   Layout,
@@ -63,28 +63,36 @@ export const Footer: FC = () => {
           <a href="https://t.me/starvell" target="_blank">
             <SocialIcon
               src="/static/images/common/socials/telegram.png"
-              alt=""
+              alt="Telegram"
+              width={44}
+              height={44}
             />
           </a>
 
           <a href="https://discord.gg/CREbyMAdBn" target="_blank">
             <SocialIcon
               src="/static/images/common/socials/discord.png"
-              alt=""
+              alt="Discord"
+              width={44}
+              height={44}
             />
           </a>
 
           <a href="https://vk.com/starvell" target="_blank">
             <SocialIcon
               src="/static/images/common/socials/vkontakte.png"
-              alt=""
+              alt="VKontakte"
+              width={44}
+              height={44}
             />
           </a>
 
           <a href="https://www.youtube.com/@STARVELL_COM" target="_blank">
             <SocialIcon
               src="/static/images/common/socials/youtube.png"
-              alt=""
+              alt="YouTube"
+              width={44}
+              height={44}
             />
           </a>
         </SocialsContainer>

@@ -1,7 +1,8 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
 import { color } from 'shared/lib/themes';
-import { MainText, SecondaryText } from 'shared/ui';
+import { MainText, SecondaryText } from 'shared/ui/typography';
 
 export const Layout = styled.footer`
   display: flex;
@@ -65,8 +66,10 @@ export const LinksContainer = styled.div`
     transition: color 0.2s ease-in-out;
   }
 
-  a:hover ${MainText} {
-    color: ${color('textPrimary')};
+  @media (hover: hover) {
+    a:hover ${MainText} {
+      color: ${color('textPrimary')};
+    }
   }
 `;
 
@@ -90,14 +93,16 @@ export const SocialsContainer = styled.div`
   gap: 12px;
 `;
 
-export const SocialIcon = styled.img`
+export const SocialIcon = styled(Image)`
   width: 44px;
   height: 44px;
   flex-shrink: 0;
   transition: filter 0.2s ease-in-out;
 
-  &:hover {
-    filter: drop-shadow(0 1px 2px rgba(153, 161, 176, 0.16))
-      drop-shadow(0 4px 8px rgba(17, 38, 66, 0.08));
+  @media (hover: hover) {
+    &:hover {
+      filter: drop-shadow(0 1px 2px rgba(153, 161, 176, 0.16))
+        drop-shadow(0 4px 8px rgba(17, 38, 66, 0.08));
+    }
   }
 `;

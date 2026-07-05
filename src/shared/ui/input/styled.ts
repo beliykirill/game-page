@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import { color } from 'shared/lib/themes';
-import { mainTextStyle } from 'shared/ui';
+import { mainTextStyle } from 'shared/ui/typography';
 
 export const Icon = styled.img`
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   flex-shrink: 0;
 `;
 
@@ -27,6 +27,7 @@ export const Container = styled.div`
 
 export const TextInput = styled.input`
   ${mainTextStyle};
+  color: ${color('textPrimary')};
 
   width: 100%;
   background-color: transparent;

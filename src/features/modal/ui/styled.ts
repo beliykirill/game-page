@@ -1,7 +1,5 @@
 import { motion } from 'framer-motion';
-import { rgba } from 'polished';
 import styled from 'styled-components';
-import { color } from 'shared/lib/themes';
 
 export const Layout = styled.div`
   z-index: 1000040;
@@ -23,7 +21,8 @@ export const Backdrop = styled(motion.div)`
   width: 100vw;
   height: 100svh;
   z-index: -1;
-  background: ${(p) => rgba(color('surfaceBackground')(p), 0.75)};
+  background: rgba(0, 0, 0, 0.24);
+  backdrop-filter: blur(2px);
   padding-bottom: env(safe-area-inset-bottom);
 `;
 

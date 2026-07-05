@@ -22,9 +22,9 @@ export const ModalSystem: FC = () => {
 
   const currentStack = stack[0];
 
-  const ModalComponent = dynamic(currentStack?.modalCtor, {
-    ssr: false,
-  });
+  const ModalComponent = currentStack?.modalCtor
+    ? dynamic(currentStack.modalCtor, { ssr: false })
+    : null;
 
   const OverlayElement = currentStack?.overlayElement || CenteredModalWrapper;
 
@@ -47,7 +47,10 @@ export const ModalSystem: FC = () => {
 
           <OverlayElement onClose={onClose}>
             <DisabledScrollStyle />
-            <ModalComponent onClose={onClose} {...currentStack?.props} />
+
+            {ModalComponent && (
+              <ModalComponent onClose={onClose} {...currentStack?.props} />
+            )}
           </OverlayElement>
         </Layout>
       )}

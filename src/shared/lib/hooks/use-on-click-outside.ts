@@ -9,12 +9,13 @@ export const useOnClickOutside = <T extends HTMLElement = HTMLElement>(
   useEffect(() => {
     const onMouseDownListener = (event: MouseEvent) => {
       const element = ref?.current;
+      const target = event.target as Node;
 
       if (
         !element ||
-        element.contains(event.target as Node) ||
-        document.getElementById('popup').contains(event.target) ||
-        document.getElementById('toast').contains(event.target)
+        element.contains(target) ||
+        document.getElementById('popup')?.contains(target) ||
+        document.getElementById('toast')?.contains(target)
       ) {
         return;
       }

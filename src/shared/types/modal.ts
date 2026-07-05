@@ -7,16 +7,20 @@ export interface ModalProps {
 
 export interface IStack {
   id: number;
-  modalCtor: () => Promise<{
-    readonly default: FC<ModalProps & Record<string, unknown>>;
-  }>;
+  modalCtor: Nullable<
+    () => Promise<{
+      readonly default: FC<ModalProps & Record<string, unknown>>;
+    }>
+  >;
   props: {
     [key: string]: unknown;
   };
+  options?: Record<string, unknown>;
   overlayElement: Nullable<FC<ModalProps>>;
 }
 
 export interface ModalsState {
   isVisible: boolean;
+  lastStackId: number;
   stack: IStack[];
 }

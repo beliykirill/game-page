@@ -2,10 +2,15 @@ import { FC } from 'react';
 import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
 import { Formik } from 'formik';
-import { LanguageSwitcher } from 'features/language-switcher';
 import { CurrencySwitcher } from 'features/currency-switcher';
-import { Button, InputField, MainText } from 'shared/ui';
-import { HoverablePopup, PopupContainer, LabelContainer } from 'shared/ui/popup';
+import { LanguageSwitcher } from 'features/language-switcher';
+import { Button, InputField } from 'shared/ui';
+import {
+  HoverablePopup,
+  PopupContainer,
+  LabelContainer,
+} from 'shared/ui/popup';
+import { MainText } from 'shared/ui/typography';
 import { initialValues } from './constants';
 import {
   Layout,
@@ -32,7 +37,11 @@ export const Header: FC = () => {
 
           <Formik initialValues={initialValues} onSubmit={onSubmit}>
             {() => (
-              <InputField name="search" placeholder={t('search_placeholder')} />
+              <InputField
+                name="search"
+                placeholder={t('search_placeholder')}
+                prefixIcon="/static/images/common/icons/search.svg"
+              />
             )}
           </Formik>
         </Section>
@@ -76,9 +85,7 @@ export const Header: FC = () => {
             </Link>
 
             <Link href="/registration">
-              <Button buttonTheme="secondary">
-                {t('button_registration')}
-              </Button>
+              <Button buttonTheme="primary">{t('button_registration')}</Button>
             </Link>
           </ButtonsContainer>
         </InformationContainer>

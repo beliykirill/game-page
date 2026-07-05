@@ -1,7 +1,7 @@
 import { ComponentType, ReactNode } from 'react';
 
 export type ModalWrapperProps = {
-  isVisible: boolean;
+  isVisible?: boolean;
   onClose: () => void;
   children: ReactNode;
 };

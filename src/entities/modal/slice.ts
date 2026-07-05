@@ -3,6 +3,7 @@ import { IStack, ModalsState } from 'shared/types/modal';
 
 const initialState: ModalsState = {
   isVisible: false,
+  lastStackId: 0,
   stack: [],
 };
 
@@ -18,22 +19,22 @@ export const modalSlice = createSlice({
   initialState,
   reducers: {
     showModal: (state, { payload }: PayloadAction<Partial<IStack>>) => {
-      const { lastStackId } = state;
       const { modalCtor, overlayElement, props, options } = payload;
 
-      const nextModalId = lastStackId + 1;
+      const nextModalId = state.lastStackId + 1;
 
       state.stack = [
         {
           ...defaultModal,
-          modalCtor,
-          props,
+          modalCtor: modalCtor ?? null,
+          props: props ?? {},
           options,
-          overlayElement,
+          overlayElement: overlayElement ?? null,
           id: nextModalId,
         },
         ...state.stack,
       ];
+      state.lastStackId = nextModalId;
       state.isVisible = true;
     },
     hideModal: (state, { payload }: PayloadAction<'force' | undefined>) => {

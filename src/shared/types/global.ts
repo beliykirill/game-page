@@ -4,3 +4,8 @@ export interface IFloatingPopupProps {
   onClose: () => void;
   isOpen?: boolean;
 }
+
+export interface IOption {
+  value: string;
+  label: string;
+}

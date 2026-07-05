@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import type { GetStaticProps } from 'next';
+import type { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
@@ -7,17 +7,13 @@ import { Footer } from 'widgets/footer';
 import { Header } from 'widgets/header';
 import { Main } from 'widgets/main';
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale!, ['common'])),
-    },
-  };
-};
+export const getServerSideProps: GetServerSideProps = async ({ locale }) => ({
+  props: {
+    ...(await serverSideTranslations(locale!, ['common'])),
+  },
+});
 
-interface HomePageProps {}
-
-const HomePage: FC<HomePageProps> = () => {
+const CategoryNamePage: FC = () => {
   const [t] = useTranslation('common');
 
   return (
@@ -40,4 +36,4 @@ const HomePage: FC<HomePageProps> = () => {
   );
 };
 
-export default HomePage;
+export default CategoryNamePage;

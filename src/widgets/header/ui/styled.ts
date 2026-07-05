@@ -5,9 +5,6 @@ import { color } from 'shared/lib/themes';
 export const Layout = styled.header`
   height: 56px;
   width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
   border-bottom: 1px solid ${color('surfaceBorder')};
   background: ${color('surfaceMain')};
   display: flex;

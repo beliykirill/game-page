@@ -1,5 +1,4 @@
 import type { NextConfig } from 'next';
-import path from 'path';
 import { i18n } from './next-i18next.config';
 
 const nextConfig: NextConfig = {
@@ -19,49 +18,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'scryde.game',
-        port: '',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'static.cdnscryde.com',
-        port: '',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'static.scrydecdn.com',
-        port: '',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'static-eu.scrydecdn.com',
-        port: '',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'frontend-static-eu.scrydecdn.com',
-        port: '',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'frontend-static.scrydecdn.com',
-        port: '',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'md.scrydecdn.com',
-        port: '',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'media.scrydecdn.com',
+        hostname: 'cdn.starvell.com',
         port: '',
         pathname: '/**',
       },

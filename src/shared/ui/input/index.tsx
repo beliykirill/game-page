@@ -1,13 +1,19 @@
-import { ChangeEvent, FC, FocusEventHandler, InputHTMLAttributes } from 'react';
+import { ChangeEvent, FC, FocusEvent, InputHTMLAttributes } from 'react';
 import { useField, useFormikContext } from 'formik';
 import { Container, TextInput, Icon } from './styled';
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
   prefixIcon?: string;
+  suffixIcon?: string;
 }
 
-export const InputField: FC<Props> = ({ name, prefixIcon, ...props }) => {
+export const InputField: FC<Props> = ({
+  name,
+  prefixIcon,
+  suffixIcon,
+  ...props
+}) => {
   const [field, meta, helpers] = useField(name);
 
   const { validateField } = useFormikContext();
@@ -40,7 +46,7 @@ export const InputField: FC<Props> = ({ name, prefixIcon, ...props }) => {
     }
   };
 
-  const onBlur = (focusEvent: FocusEventHandler<HTMLInputElement>) => {
+  const onBlur = (focusEvent: FocusEvent<HTMLInputElement>) => {
     if (typeof props.onBlur === 'function') {
       props.onBlur(focusEvent);
     }
@@ -59,6 +65,8 @@ export const InputField: FC<Props> = ({ name, prefixIcon, ...props }) => {
         onChange={handleChangeValue}
         onBlur={onBlur}
       />
+
+      {suffixIcon && <Icon src={suffixIcon} />}
     </Container>
   );
 };

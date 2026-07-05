@@ -2,12 +2,12 @@ import { FC, useState } from 'react';
 import { useTranslation } from 'next-i18next';
 import { setCookie } from 'cookies-next';
 import { COOKIES_MAX_AGE, COOKIES_VARIABLES } from 'shared/constants';
-import { MainText } from 'shared/ui';
 import {
   HoverablePopup,
   PopupContainer,
   LabelContainer,
 } from 'shared/ui/popup';
+import { MainText } from 'shared/ui/typography';
 import { ICurrency } from './types';
 
 export const CurrencySwitcher: FC = () => {

@@ -2,12 +2,12 @@ import { FC } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
-import { MainText } from 'shared/ui';
 import {
   HoverablePopup,
   PopupContainer,
   LabelContainer,
 } from 'shared/ui/popup';
+import { MainText } from 'shared/ui/typography/main-text';
 import { ILanguage } from './types';
 
 export const LanguageSwitcher: FC = () => {

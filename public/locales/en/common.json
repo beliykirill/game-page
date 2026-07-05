@@ -1,12 +1,200 @@
 {
   "meta": {
-    "title": "Купить робуксы для Roblox — биржа Starvell",
-    "description": "Купите робуксы для Roblox быстро и безопасно на Starvell. Выгодные курсы, лоты под любой бюджет, мгновенная выдача и защищённая сделка."
+    "title": "Buy Robux for Roblox — Starvell Marketplace",
+    "description": "Buy Robux for Roblox quickly and securely on Starvell. Great rates, offers for every budget, instant delivery, and protected transactions."
   },
-
   "header": {
-    "search_placeholder": "Поиск игр и приложений...",
-    "button_login": "Войти",
-    "button_registration": "Регистрация"
+    "search_placeholder": "Search games and apps...",
+    "support": {
+      "title": "Support",
+      "items": [
+        {
+          "text": "Contact Support",
+          "link": "/support"
+        },
+        {
+          "text": "Privacy Policy",
+          "link": "/privacy"
+        },
+        {
+          "text": "Terms of Service",
+          "link": "/policy"
+        }
+      ]
+    },
+    "button_login": "Log In",
+    "button_registration": "Sign Up",
+    "languages": [
+      {
+        "text": "Russian",
+        "code": "ru"
+      },
+      {
+        "text": "English",
+        "code": "en"
+      }
+    ],
+    "currencies": [
+      {
+        "code": "rub",
+        "text": "RUB"
+      },
+      {
+        "code": "usd",
+        "text": "USD"
+      },
+      {
+        "code": "eur",
+        "text": "EUR"
+      }
+    ]
+  },
+  "main": {
+    "title": "Roblox Robux",
+    "description": "Buy Robux for Roblox quickly, securely, and at competitive prices on Starvell. Browse offers from verified sellers with genuine reviews and ratings, compare exchange rates, choose instant delivery, and pay using your preferred payment method. Every transaction is protected: the seller receives payment only after you confirm that the Robux have been delivered. Top up your balance with any amount and unlock the full Roblox experience without overpaying or taking unnecessary risks.",
+    "report_modal": {
+      "title": "Report 0xHearts.com",
+      "reason_label": "Reason for Report",
+      "reason_placeholder": "Select a reason",
+      "reason_options": [
+        {
+          "value": "not_delivered",
+          "label": "Item Not Delivered"
+        },
+        {
+          "value": "not_as_described",
+          "label": "Item Doesn't Match Description"
+        },
+        {
+          "value": "fraud",
+          "label": "Fraud"
+        },
+        {
+          "value": "seller_inactive",
+          "label": "Seller Is Not Responding"
+        },
+        {
+          "value": "prohibited_item",
+          "label": "Prohibited Item"
+        },
+        {
+          "value": "other",
+          "label": "Other"
+        }
+      ],
+      "problem_label": "Describe the Issue",
+      "problem_placeholder": "Enter your message",
+      "upload_file_label": "Evidence",
+      "upload_file_title": "Choose a file or drag it here",
+      "upload_file_description": "JPEG or PNG up to 5 MB",
+      "upload_file_error_type": "Only JPEG or PNG files are allowed",
+      "upload_file_error_size": "File size must not exceed 5 MB",
+      "button_secondary": "I Need Support",
+      "button_main": "Submit Report"
+    },
+    "categories": [
+      {
+        "value": "all",
+        "label": "All"
+      },
+      {
+        "value": "bells",
+        "label": "Beli"
+      },
+      {
+        "value": "accounts",
+        "label": "Accounts"
+      },
+      {
+        "value": "items",
+        "label": "Items"
+      },
+      {
+        "value": "vip",
+        "label": "VIP Server"
+      },
+      {
+        "value": "services",
+        "label": "Services"
+      },
+      {
+        "value": "guides",
+        "label": "Guides"
+      }
+    ],
+    "columns": {
+      "text": "Offer",
+      "user": "Seller",
+      "count": "Stock",
+      "price": "Price"
+    },
+    "user_status": {
+      "summary": "{{ years }}, {{ reviews }}",
+      "years_on_site_one": "{{ count }} year on the platform",
+      "years_on_site_few": "{{ count }} years on the platform",
+      "years_on_site_many": "{{ count }} years on the platform",
+      "reviews_one": "{{ count }} review",
+      "reviews_few": "{{ count }} reviews",
+      "reviews_many": "{{ count }} reviews"
+    },
+    "delivery_statuses": [
+      {
+        "value": "instant",
+        "label": "Instant Delivery"
+      },
+      {
+        "value": "hour",
+        "label": "Within an Hour"
+      },
+      {
+        "value": "day",
+        "label": "Within 24 Hours"
+      },
+      {
+        "value": "manual",
+        "label": "Manual Delivery"
+      }
+    ],
+    "online_seller": "Online Sellers Only",
+    "instant_delivery": "Instant Delivery",
+    "input_search": "Search offer descriptions...",
+    "button_sale": "Sell Blox Fruits",
+    "button_more": "Show More Offers",
+    "empty": "No results found for your search",
+    "intro": "Robux is the premium currency of the Roblox platform, giving players access to enhanced gameplay and exclusive features. As a result, millions of players are looking to buy it. The safest and most affordable way to purchase Robux is through a trusted marketplace like Starvell. We provide a secure environment for buying and selling Roblox Robux directly between users, offering:",
+    "benefits": [
+      "Secure transactions. Every deal follows three simple steps: payment, delivery of the in-game currency, and buyer confirmation.",
+      "Competitive market rates for Robux, determined naturally through seller competition.",
+      "Fast checkout. Complete your purchase in just a few clicks using your preferred payment method."
+    ],
+    "information": "If you have any questions, our support team is available 24/7 to help you.\n\n<0>How to Buy</0>\nBuying Robux is simple and only takes three steps:\nChoose an offer by clicking on it, then contact the seller from the order page.\nPay for the amount of Robux you need.\nReceive your Robux and confirm the order completion. After that, you can leave a review and rate the seller.\nThe seller will only receive your payment after you confirm that the Robux have been successfully delivered.\n\n<0>For Sellers</0>\nWhether you're an experienced seller or just getting started, Starvell gives you the opportunity to sell Robux with ease. To become a successful seller, follow these principles:",
+    "principles": [
+      "List only the amount of Robux you currently have available so you can fulfill orders promptly.",
+      "Respond politely to potential buyers' questions.",
+      "Take your responsibilities seriously and complete orders as quickly as possible.",
+      "Deliver exactly the amount of Robux specified in the buyer's order."
+    ],
+    "outro": "Remember, the more satisfied customers you have, the greater your chances of turning your hobby into a reliable source of income. Join Starvell today!"
+  },
+  "footer": {
+    "rights": "© {{ year }} STARVELL, the best marketplace for digital goods and services",
+    "design": "Design by <0>0xHearts.com</0>",
+    "support": {
+      "title": "Support",
+      "items": [
+        {
+          "text": "Contact Support",
+          "link": "/support"
+        },
+        {
+          "text": "Privacy Policy",
+          "link": "/privacy"
+        },
+        {
+          "text": "Terms of Service",
+          "link": "/policy"
+        }
+      ]
+    }
   }
 }
