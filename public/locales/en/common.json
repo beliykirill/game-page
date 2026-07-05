@@ -131,13 +131,15 @@
     "user_status": {
       "summary": "{{ years }}, {{ reviews }}",
       "years_on_site_one": "{{ count }} year on the platform",
-      "years_on_site_few": "{{ count }} years on the platform",
-      "years_on_site_many": "{{ count }} years on the platform",
+      "years_on_site_other": "{{ count }} years on the platform",
       "reviews_one": "{{ count }} review",
-      "reviews_few": "{{ count }} reviews",
-      "reviews_many": "{{ count }} reviews"
+      "reviews_other": "{{ count }} reviews"
     },
     "delivery_statuses": [
+      {
+        "value": "global",
+        "label": "Any Delivery"
+      },
       {
         "value": "instant",
         "label": "Instant Delivery"

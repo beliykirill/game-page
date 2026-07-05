@@ -35,7 +35,14 @@ export const Footer: FC = () => {
                 <Trans
                   t={t}
                   i18nKey="design"
-                  components={[<a key="design" href="https://0xhearts.com/" />]}
+                  components={[
+                    <a
+                      key="design"
+                      href="https://0xhearts.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    />,
+                  ]}
                 />
               </MainText>
             </TextContainer>
@@ -44,7 +51,7 @@ export const Footer: FC = () => {
           <SupportContainer>
             <SecondaryText>{t('support.title')}</SecondaryText>
 
-            <LinksContainer>
+            <LinksContainer as="nav">
               {(
                 t('support.items', { returnObjects: true }) as {
                   text: string;
@@ -59,8 +66,12 @@ export const Footer: FC = () => {
           </SupportContainer>
         </Section>
 
-        <SocialsContainer>
-          <a href="https://t.me/starvell" target="_blank">
+        <SocialsContainer as="nav">
+          <a
+            href="https://t.me/starvell"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <SocialIcon
               src="/static/images/common/socials/telegram.png"
               alt="Telegram"
@@ -69,7 +80,11 @@ export const Footer: FC = () => {
             />
           </a>
 
-          <a href="https://discord.gg/CREbyMAdBn" target="_blank">
+          <a
+            href="https://discord.gg/CREbyMAdBn"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <SocialIcon
               src="/static/images/common/socials/discord.png"
               alt="Discord"
@@ -78,7 +93,11 @@ export const Footer: FC = () => {
             />
           </a>
 
-          <a href="https://vk.com/starvell" target="_blank">
+          <a
+            href="https://vk.com/starvell"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <SocialIcon
               src="/static/images/common/socials/vkontakte.png"
               alt="VKontakte"
@@ -87,7 +106,11 @@ export const Footer: FC = () => {
             />
           </a>
 
-          <a href="https://www.youtube.com/@STARVELL_COM" target="_blank">
+          <a
+            href="https://www.youtube.com/@STARVELL_COM"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <SocialIcon
               src="/static/images/common/socials/youtube.png"
               alt="YouTube"

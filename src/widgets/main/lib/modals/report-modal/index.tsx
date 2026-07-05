@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { useTranslation } from 'next-i18next';
 import { FormikContext, useFormik } from 'formik';
-import { ModalProps } from 'shared/types/modal';
 import { IOption } from 'shared/types/global';
+import { ModalProps } from 'shared/types/modal';
 import { Button, TextAreaField } from 'shared/ui';
 import { SelectField } from 'shared/ui/select';
 import { SectionText } from 'shared/ui/typography';
@@ -30,7 +30,7 @@ const ReportModal: FC<ModalProps> = ({ onClose }) => {
     <FormikContext.Provider value={formikValues}>
       <Layout>
         <CloseBlock onClick={onClose}>
-          <img src="/static/images/common/icons/close.svg" alt="close" />
+          <img src="/static/images/common/icons/close.svg" alt="" />
         </CloseBlock>
 
         <SectionText>{t('report_modal.title')}</SectionText>

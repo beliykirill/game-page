@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import styled from 'styled-components';
-import { color } from 'shared/lib/themes';
+import { color, media } from 'shared/lib/themes';
 import { HeadlineText, MainText } from 'shared/ui/typography';
 
 export const Layout = styled.main`
@@ -8,7 +8,11 @@ export const Layout = styled.main`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 24px 0;
+  padding: 24px 16px;
+
+  ${media.mobile} {
+    padding: 16px 12px;
+  }
 `;
 
 export const Container = styled.div`
@@ -23,6 +27,17 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
+
+  ${media.tablet} {
+    padding: 32px 24px;
+    gap: 32px;
+  }
+
+  ${media.mobile} {
+    padding: 20px 16px;
+    gap: 24px;
+    border-radius: 12px;
+  }
 `;
 
 export const Section = styled.div`
@@ -66,4 +81,12 @@ export const BackgroundIcon = styled(Image)`
   position: absolute;
   z-index: 0;
   pointer-events: none;
+
+  ${media.tablet} {
+    display: none;
+  }
+
+  ${media.mobile} {
+    display: none;
+  }
 `;

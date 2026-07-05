@@ -4,7 +4,7 @@ import { offset as offsetMiddleware } from '@floating-ui/react-dom';
 import { useField } from 'formik';
 import { FloatingPopup } from 'shared/lib/floating-popup';
 import { IOption, Nullable } from 'shared/types/global';
-import { PopupContainer } from 'shared/ui/popup';
+import { PopupContainer, PopupItem } from 'shared/ui/popup';
 import { MainText } from 'shared/ui/typography';
 import { Container, Layout } from './styled';
 
@@ -29,6 +29,7 @@ export const Select: FC<SelectProps> = ({
 
   return (
     <FloatingPopup
+      manageFocus
       options={{
         middleware: [
           offsetMiddleware(8),
@@ -45,15 +46,15 @@ export const Select: FC<SelectProps> = ({
       popup={({ onClose }) => (
         <PopupContainer>
           {options.map((option) => (
-            <MainText
+            <PopupItem
               key={option.value}
               onClick={() => {
                 onSelect(option.value);
                 onClose();
               }}
             >
-              {option.label}
-            </MainText>
+              <MainText>{option.label}</MainText>
+            </PopupItem>
           ))}
         </PopupContainer>
       )}

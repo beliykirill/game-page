@@ -5,7 +5,7 @@ export const initialValues = {
   search: '',
   is_instant_delivery: false,
   is_online: false,
-  delivery_status: 'instant',
+  delivery_status: 'global',
 };
 
 const baseOffers: IOffer[] = [

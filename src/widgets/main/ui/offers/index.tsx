@@ -13,7 +13,6 @@ import { BaseTable } from 'shared/ui/table';
 import { MainText } from 'shared/ui/typography';
 import { data, PAGE_SIZE, initialValues } from './constants';
 import {
-  DotsLoader,
   EmptyState,
   FiltersContainer,
   OffersContainer,
@@ -161,16 +160,8 @@ export const Offers: FC = () => {
             <BaseTable data={offers} columns={columns} />
 
             {hasMore && (
-              <Button disabled={isLoading} onClick={onLoadMore}>
-                {isLoading ? (
-                  <DotsLoader>
-                    <span />
-                    <span />
-                    <span />
-                  </DotsLoader>
-                ) : (
-                  t('button_more')
-                )}
+              <Button isLoading={isLoading} onClick={onLoadMore}>
+                {t('button_more')}
               </Button>
             )}
           </>

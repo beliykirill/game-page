@@ -1,6 +1,7 @@
 import { FC, ReactNode, useState } from 'react';
 import {
   ElementProps,
+  FloatingFocusManager,
   FloatingPortal,
   Middleware,
   UseFloatingOptions,
@@ -26,6 +27,7 @@ interface Props {
     floating: Pick<UseFloatingReturn, 'context'>,
   ) => ElementProps[];
   modifiers?: Middleware[];
+  manageFocus?: boolean;
   children: CallableChildren | ReactNode;
 }
 
@@ -34,6 +36,7 @@ export const FloatingPopup: FC<Props> = ({
   options,
   interactions,
   modifiers = [],
+  manageFocus = false,
   children,
 }) => {
   const [isOpened, setOpen] = useState(options?.open ?? false);
@@ -87,13 +90,20 @@ export const FloatingPopup: FC<Props> = ({
 
       {isMounted && (
         <FloatingPortal id="popup">
-          <div
-            ref={refs.setFloating}
-            style={{ ...floatingStyles, ...styles, zIndex: 999999 }}
-            {...getFloatingProps()}
+          <FloatingFocusManager
+            context={context}
+            modal={false}
+            disabled={!manageFocus}
+            returnFocus
           >
-            <Popup onClose={handleChangeViewStatePopup} />
-          </div>
+            <div
+              ref={refs.setFloating}
+              style={{ ...floatingStyles, ...styles, zIndex: 999999 }}
+              {...getFloatingProps()}
+            >
+              <Popup onClose={handleChangeViewStatePopup} />
+            </div>
+          </FloatingFocusManager>
         </FloatingPortal>
       )}
     </>

@@ -1,4 +1,6 @@
-import styled from 'styled-components';
+import { rgba } from 'polished';
+import styled, { css } from 'styled-components';
+import { ifProp } from 'styled-tools';
 import { color } from 'shared/lib/themes';
 import { mainTextStyle } from 'shared/ui/typography';
 
@@ -8,7 +10,7 @@ export const Icon = styled.img`
   flex-shrink: 0;
 `;
 
-export const Container = styled.div`
+export const Container = styled.div<{ $hasError?: boolean }>`
   display: flex;
   align-items: center;
   padding: 0 12px;
@@ -23,6 +25,41 @@ export const Container = styled.div`
     0 1px 2px 0 rgba(153, 161, 176, 0.16),
     0 0 0 1px rgba(17, 38, 66, 0.08);
   backdrop-filter: blur(6px);
+
+  &:focus-within {
+    border-color: ${color('surfaceBrand')};
+    box-shadow:
+      0 1px 2px 0 rgba(153, 161, 176, 0.16),
+      0 0 0 3px ${(p) => rgba(color('surfaceBrand')(p), 0.18)};
+  }
+
+  ${ifProp(
+    '$hasError',
+    css`
+      border-color: ${color('surfaceError')};
+
+      &:focus-within {
+        border-color: ${color('surfaceError')};
+        box-shadow:
+          0 1px 2px 0 rgba(153, 161, 176, 0.16),
+          0 0 0 3px ${(p) => rgba(color('surfaceError')(p), 0.18)};
+      }
+    `,
+  )}
+`;
+
+export const ErrorText = styled.span`
+  ${mainTextStyle};
+  font-size: 12px;
+  line-height: 16px;
+  color: ${color('textError')};
+  margin-top: 4px;
+`;
+
+export const Field = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 `;
 
 export const TextInput = styled.input`

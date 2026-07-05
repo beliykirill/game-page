@@ -4,7 +4,7 @@ import { ifProp } from 'styled-tools';
 import { color } from 'shared/lib/themes';
 import { MainText, TinyText } from 'shared/ui/typography';
 
-export const CategoriesContainer = styled.div`
+export const CategoriesContainer = styled.ul`
   display: flex;
   align-items: center;
   gap: 8px;
@@ -25,6 +25,11 @@ export const Category = styled(Link)<{ $isActive: boolean }>`
   transition:
     background-color 0.2s ease-in-out,
     transform 0.2s ease-in-out;
+
+  &:focus-visible {
+    outline: 2px solid ${color('surfaceBrand')};
+    outline-offset: 2px;
+  }
 
   ${MainText}, ${TinyText} {
     color: ${color('textBrand')};

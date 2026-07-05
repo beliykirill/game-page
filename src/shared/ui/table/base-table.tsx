@@ -7,7 +7,7 @@ import {
   useReactTable,
 } from '@tanstack/react-table';
 import styled from 'styled-components';
-import { color } from 'shared/lib/themes';
+import { color, media } from 'shared/lib/themes';
 import { MainText, SecondaryText } from 'shared/ui/typography';
 
 interface IBaseTable {
@@ -35,25 +35,42 @@ export const BaseTable: FC<IBaseTable> = ({ data, columns }) => {
         <TableHead>
           {table.getHeaderGroups().map((headerGroup) => (
             <tr key={headerGroup.id}>
-              {headerGroup.headers.map((header) => (
-                <th
-                  key={header.id}
-                  onClick={header.column.getToggleSortingHandler()}
-                  style={{
-                    width: header.getSize(),
-                    cursor: header.column.getCanSort() ? 'pointer' : 'default',
-                    userSelect: 'none',
-                    ...header.column.columnDef.meta?.style,
-                  }}
-                >
-                  {header.isPlaceholder
-                    ? null
-                    : flexRender(
-                        header.column.columnDef.header,
-                        header.getContext(),
-                      )}
-                </th>
-              ))}
+              {headerGroup.headers.map((header) => {
+                const canSort = header.column.getCanSort();
+
+                const toggleSort = header.column.getToggleSortingHandler();
+
+                return (
+                  <th
+                    key={header.id}
+                    onClick={toggleSort}
+                    onKeyDown={
+                      canSort
+                        ? (event) => {
+                            if (event.key === 'Enter' || event.key === ' ') {
+                              event.preventDefault();
+                              toggleSort?.(event);
+                            }
+                          }
+                        : undefined
+                    }
+                    tabIndex={canSort ? 0 : undefined}
+                    style={{
+                      width: header.getSize(),
+                      cursor: canSort ? 'pointer' : 'default',
+                      userSelect: 'none',
+                      ...header.column.columnDef.meta?.style,
+                    }}
+                  >
+                    {header.isPlaceholder
+                      ? null
+                      : flexRender(
+                          header.column.columnDef.header,
+                          header.getContext(),
+                        )}
+                  </th>
+                );
+              })}
             </tr>
           ))}
         </TableHead>
@@ -82,11 +99,26 @@ const TableContainer = styled.div`
   thead {
     background: ${color('surfaceMain')};
   }
+
+  ${media.mobile} {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+
+    table {
+      min-width: 560px;
+    }
+  }
 `;
 
 const TableHead = styled.thead`
   th {
     white-space: nowrap;
+  }
+
+  th[tabindex]:focus-visible {
+    outline: 2px solid ${color('surfaceBrand')};
+    outline-offset: -2px;
+    border-radius: 4px;
   }
 
   th:not(:last-child) {
@@ -119,6 +151,12 @@ const TableRow = styled.tr`
     &:hover td {
       background: rgba(247, 247, 247, 0.64);
     }
+  }
+
+  a:focus-visible {
+    outline: 2px solid ${color('surfaceBrand')};
+    outline-offset: -2px;
+    border-radius: 6px;
   }
 
   ${MainText}, ${SecondaryText} {

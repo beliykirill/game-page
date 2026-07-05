@@ -29,6 +29,11 @@ export const Container = styled.button<{
     transform: none;
   }
 
+  &:focus-visible {
+    outline: 2px solid ${color('surfaceBrand')};
+    outline-offset: 2px;
+  }
+
   ${switchProp('$buttonSize', {
     default: css`
       height: 40px;

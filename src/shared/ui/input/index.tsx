@@ -1,6 +1,6 @@
 import { ChangeEvent, FC, FocusEvent, InputHTMLAttributes } from 'react';
 import { useField, useFormikContext } from 'formik';
-import { Container, TextInput, Icon } from './styled';
+import { Container, TextInput, Icon, ErrorText, Field } from './styled';
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
@@ -17,6 +17,8 @@ export const InputField: FC<Props> = ({
   const [field, meta, helpers] = useField(name);
 
   const { validateField } = useFormikContext();
+
+  const hasError = Boolean(meta.touched && meta.error);
 
   const handleChangeValue = (changeEvent: ChangeEvent<HTMLInputElement>) => {
     if (
@@ -55,18 +57,22 @@ export const InputField: FC<Props> = ({
   };
 
   return (
-    <Container className="input-container">
-      {prefixIcon && <Icon src={prefixIcon} />}
+    <Field className="input-container">
+      <Container $hasError={hasError}>
+        {prefixIcon && <Icon src={prefixIcon} alt="" />}
 
-      <TextInput
-        {...props}
-        {...field}
-        value={field.value}
-        onChange={handleChangeValue}
-        onBlur={onBlur}
-      />
+        <TextInput
+          {...props}
+          {...field}
+          value={field.value}
+          onChange={handleChangeValue}
+          onBlur={onBlur}
+        />
 
-      {suffixIcon && <Icon src={suffixIcon} />}
-    </Container>
+        {suffixIcon && <Icon src={suffixIcon} alt="" />}
+      </Container>
+
+      {hasError && <ErrorText>{meta.error}</ErrorText>}
+    </Field>
   );
 };

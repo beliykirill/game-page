@@ -6,3 +6,4 @@ export const color =
     theme[name];
 
 export { theme } from './theme';
+export { media, breakpoints } from './breakpoints';

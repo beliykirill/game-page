@@ -19,7 +19,7 @@ export const SeoInformation: FC = () => {
       <Trans
         t={t}
         i18nKey="information"
-        components={[<SecondaryText key="title" />]}
+        components={[<SecondaryText as="h2" key="title" />]}
       />
 
       <InfoList>

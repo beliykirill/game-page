@@ -1,4 +1,5 @@
 import { ButtonHTMLAttributes, FC } from 'react';
+import { DotsLoader } from 'shared/ui/dots-loader';
 import { MainText } from 'shared/ui/typography';
 import { Container } from './styled';
 
@@ -9,13 +10,16 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   buttonTheme?: ButtonTheme;
   buttonSize?: ButtonSize;
   isActive?: boolean;
+  isLoading?: boolean;
 }
 
 export const Button: FC<ButtonProps> = ({
   buttonTheme = 'default',
   buttonSize = 'default',
   isActive = false,
+  isLoading = false,
   children,
+  disabled,
   ...props
 }) => {
   return (
@@ -23,9 +27,13 @@ export const Button: FC<ButtonProps> = ({
       $buttonTheme={buttonTheme}
       $buttonSize={buttonSize}
       $isActive={isActive}
+      disabled={disabled || isLoading}
+
       {...props}
     >
-      <MainText $textTheme="medium">{children}</MainText>
+      <MainText as="span" $textTheme="medium">
+        {isLoading ? <DotsLoader /> : children}
+      </MainText>
     </Container>
   );
 };

@@ -5,6 +5,7 @@ import { COOKIES_MAX_AGE, COOKIES_VARIABLES } from 'shared/constants';
 import {
   HoverablePopup,
   PopupContainer,
+  PopupItem,
   LabelContainer,
 } from 'shared/ui/popup';
 import { MainText } from 'shared/ui/typography';
@@ -34,7 +35,7 @@ export const CurrencySwitcher: FC = () => {
       popup={({ onClose }) => (
         <PopupContainer>
           {currencies.map((currency) => (
-            <MainText
+            <PopupItem
               key={currency.code}
               onClick={() => {
                 onSelect(currency);
@@ -42,13 +43,17 @@ export const CurrencySwitcher: FC = () => {
               }}
             >
               {currency.text}
-            </MainText>
+            </PopupItem>
           ))}
         </PopupContainer>
       )}
     >
       {(isOpen) => (
-        <LabelContainer $isOpen={isOpen}>
+        <LabelContainer
+          $isOpen={isOpen}
+          aria-haspopup="menu"
+          aria-expanded={isOpen}
+        >
           <MainText>{currentCurrency}</MainText>
 
           <img src="/static/images/common/arrows/chevron.svg" alt="" />

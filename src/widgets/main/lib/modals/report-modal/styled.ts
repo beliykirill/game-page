@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from 'shared/lib/themes';
+import { color, media } from 'shared/lib/themes';
 import { SectionText } from 'shared/ui/typography';
 
 export const Layout = styled.div`
@@ -33,7 +33,7 @@ export const Section = styled.div`
   gap: 16px;
 `;
 
-export const CloseBlock = styled.div`
+export const CloseBlock = styled.button.attrs({ type: 'button' })`
   position: absolute;
   right: -64px;
   top: 0;
@@ -56,12 +56,23 @@ export const CloseBlock = styled.div`
     transition: 0.2s ease-in-out;
   }
 
+  &:focus-visible {
+    outline: 2px solid ${color('surfaceBrand')};
+    outline-offset: 2px;
+  }
+
   @media (hover: hover) {
     &:hover {
       & > img {
         opacity: 1;
       }
     }
+  }
+
+  ${media.mobile} {
+    right: 0;
+    top: 0;
+    border: none;
   }
 `;
 

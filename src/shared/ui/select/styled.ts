@@ -3,7 +3,10 @@ import { ifProp, switchProp } from 'styled-tools';
 import { color } from 'shared/lib/themes';
 import { MainText, secondaryTextStyle } from 'shared/ui/typography';
 
-export const Container = styled.div<{ $isOpen: boolean }>`
+export const Container = styled.button.attrs({ type: 'button' })<{
+  $isOpen: boolean;
+}>`
+  width: 100%;
   height: 36px;
   padding: 0 12px;
   display: flex;
@@ -11,6 +14,7 @@ export const Container = styled.div<{ $isOpen: boolean }>`
   justify-content: space-between;
   border-radius: 8px;
   cursor: pointer;
+  font: inherit;
   background-color: ${color('surfaceMain')};
   border: 1px solid ${color('surfaceBorder')};
   gap: 8px;
@@ -20,6 +24,11 @@ export const Container = styled.div<{ $isOpen: boolean }>`
 
   &:active {
     background-color: ${color('surfaceBackground')};
+  }
+
+  &:focus-visible {
+    outline: 2px solid ${color('surfaceBrand')};
+    outline-offset: 2px;
   }
 
   img {
@@ -57,6 +66,12 @@ export const Layout = styled.div<{
 
   & > ${MainText} {
     color: ${ifProp('$hasValue', color('textLabel'), color('textPlaceholder'))};
+  }
+
+  ${Container} {
+    & > ${MainText} {
+      color: ${ifProp('$hasValue', color('textLabel'), color('textPlaceholder'))};
+    }
   }
 
   ${switchProp('$selectSize', {

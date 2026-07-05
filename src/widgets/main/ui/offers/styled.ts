@@ -1,25 +1,17 @@
-import styled, { css, keyframes } from 'styled-components';
+import styled, { css } from 'styled-components';
 import { ifProp } from 'styled-tools';
-import { color } from 'shared/lib/themes';
+import { color, media } from 'shared/lib/themes';
 import { MainText } from 'shared/ui/typography';
-
-const bounce = keyframes`
-  0%,
-  80%,
-  100% {
-    transform: translateY(0);
-    opacity: 0.5;
-  }
-
-  40% {
-    transform: translateY(-4px);
-    opacity: 1;
-  }
-`;
 
 export const FiltersContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  gap: 16px;
+
+  ${media.tablet} {
+    flex-direction: column;
+    align-items: stretch;
+  }
 `;
 
 export const OptionsContainer = styled.div`
@@ -33,10 +25,15 @@ export const OptionsSection = styled.div`
   display: flex;
   gap: 8px;
   width: 100%;
+  flex-wrap: wrap;
 
   .input-container {
     max-width: 317px;
     width: 100%;
+
+    ${media.mobile} {
+      max-width: 100%;
+    }
   }
 `;
 
@@ -58,6 +55,11 @@ export const OptionButton = styled.button<{ $isActive: boolean }>`
   ${MainText} {
     color: ${color('textBrand')};
     transition: color 0.2s ease-in-out;
+  }
+
+  &:focus-visible {
+    outline: 2px solid ${color('surfaceBrand')};
+    outline-offset: 2px;
   }
 
   @media (hover: hover) {
@@ -107,27 +109,4 @@ export const EmptyState = styled.div`
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
-`;
-
-export const DotsLoader = styled.span`
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-
-  span {
-    width: 6px;
-    height: 6px;
-    flex-shrink: 0;
-    border-radius: 50%;
-    background-color: currentColor;
-    animation: ${bounce} 0.6s infinite ease-in-out;
-  }
-
-  span:nth-child(2) {
-    animation-delay: 0.15s;
-  }
-
-  span:nth-child(3) {
-    animation-delay: 0.3s;
-  }
 `;

@@ -40,9 +40,7 @@ export const HoverablePopup: FC<Props> = ({
           mouseOnly: true,
           move: true,
         }),
-        useClick(context, {
-          enabled: isMobile,
-        }),
+        useClick(context),
       ]}
     >
       {children}

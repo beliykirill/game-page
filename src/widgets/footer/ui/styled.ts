@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
-import { color } from 'shared/lib/themes';
+import { color, media } from 'shared/lib/themes';
 import { MainText, SecondaryText } from 'shared/ui/typography';
 
 export const Layout = styled.footer`
@@ -10,7 +10,7 @@ export const Layout = styled.footer`
   justify-content: center;
   width: 100%;
   margin-top: auto;
-  padding: 32px 0 44px;
+  padding: 32px 16px 44px;
   border-top: 1px solid ${color('surfaceBorder')};
   background: ${color('surfaceMain')};
 `;
@@ -20,11 +20,26 @@ export const Container = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
+  gap: 32px;
+
+  ${media.tablet} {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `;
 
 export const Section = styled.div`
   display: flex;
   gap: 88px;
+
+  ${media.tablet} {
+    gap: 48px;
+  }
+
+  ${media.mobile} {
+    flex-direction: column;
+    gap: 24px;
+  }
 `;
 
 export const Logo = styled(Link)`

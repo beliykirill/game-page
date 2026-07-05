@@ -8,10 +8,12 @@ import Document, {
 } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
-export default class LandingApp extends Document {
+type DocumentProps = { locale?: string };
+
+export default class LandingApp extends Document<DocumentProps> {
   static async getInitialProps(
     ctx: DocumentContext,
-  ): Promise<DocumentInitialProps> {
+  ): Promise<DocumentInitialProps & DocumentProps> {
     const sheet = new ServerStyleSheet();
     const originalRenderPage = ctx.renderPage;
 
@@ -25,6 +27,7 @@ export default class LandingApp extends Document {
       const initialProps = await Document.getInitialProps(ctx);
       return {
         ...initialProps,
+        locale: ctx.locale,
         styles: [
           <>
             {initialProps.styles}
@@ -39,7 +42,7 @@ export default class LandingApp extends Document {
 
   render() {
     return (
-      <Html>
+      <Html lang={this.props.locale ?? 'ru'}>
         <Head>
           <link rel="icon" href="/static/images/favicon.ico" type="image" />
 

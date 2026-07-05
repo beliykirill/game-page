@@ -101,7 +101,7 @@ export const categories = [
   { text: 'Racket Rivals', count: 42, link: '/roblox/racket-rivals' },
   { text: 'Rivals', count: 483, link: '/roblox/rivals' },
   { text: 'Sailor Piece', count: 552, link: '/roblox/sailor-piece' },
-  { text: "Sol's RNG", count: 102, link: '/roblox/sols-rng' },
+  { text: 'Sol’s RNG', count: 102, link: '/roblox/sols-rng' },
   {
     text: 'Spongebob Tower Defense',
     count: 201,
