@@ -107,11 +107,13 @@ export const Header: FC = () => {
 
           <ButtonsContainer>
             <Link href="/login">
-              <Button>{t('button_login')}</Button>
+              <Button buttonSize="small">{t('button_login')}</Button>
             </Link>
 
             <Link href="/registration">
-              <Button buttonTheme="primary">{t('button_registration')}</Button>
+              <Button buttonSize="small" buttonTheme="primary">
+                {t('button_registration')}
+              </Button>
             </Link>
           </ButtonsContainer>
         </InformationContainer>

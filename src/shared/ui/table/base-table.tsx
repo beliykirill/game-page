@@ -131,6 +131,7 @@ const TableHead = styled.thead`
 `;
 
 const TableRow = styled.tr`
+  position: relative;
   transition: 0.2s ease-in-out;
 
   td {
@@ -153,7 +154,7 @@ const TableRow = styled.tr`
     }
   }
 
-  a:focus-visible {
+  &:has(a:focus-visible) {
     outline: 2px solid ${color('surfaceBrand')};
     outline-offset: -2px;
     border-radius: 6px;

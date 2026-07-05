@@ -138,11 +138,18 @@ export const ButtonsContainer = styled.div`
 export const LabelsContainer = styled.div`
   display: flex;
   align-items: center;
-  gap: 16px;
+
+  & > * + * {
+    margin-left: 16px;
+  }
 
   ${media.tablet} {
     flex-direction: column;
     align-items: flex-start;
-    gap: 12px;
+
+    & > * + * {
+      margin-left: 0;
+      margin-top: 12px;
+    }
   }
 `;

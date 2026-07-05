@@ -39,11 +39,11 @@ export const useOffersColumns = (t: TFunction) => {
           </CellLeftContainer>
         ),
         cell: ({ row, getValue }) => (
-          <Link href={`/offers/${row.original.id}`}>
+          <OfferLink href={`/offers/${row.original.id}`}>
             <CellLeftContainer>
               <MainText>{getValue()}</MainText>
             </CellLeftContainer>
-          </Link>
+          </OfferLink>
         ),
       }),
       columnHelper.accessor('user', {
@@ -71,7 +71,7 @@ export const useOffersColumns = (t: TFunction) => {
           );
 
           return (
-            <Link href={`/users/${id}`}>
+            <UserLink href={`/users/${id}`}>
               <UserContainer>
                 <UserAvatarContainer>
                   <Image width={28} height={28} src={avatar} alt={name} />
@@ -116,7 +116,7 @@ export const useOffersColumns = (t: TFunction) => {
                   </UserStatusText>
                 </UserInformationContainer>
               </UserContainer>
-            </Link>
+            </UserLink>
           );
         },
       }),
@@ -214,6 +214,19 @@ const SortIcon = styled.img<{ $direction?: false | 'asc' | 'desc' }>`
 
 const UserNameText = styled(SecondaryText)<{ $isOnline: boolean }>`
   color: ${ifProp('$isOnline', color('textPrimary'), color('textLabel'))} !important;
+`;
+
+const OfferLink = styled(Link)`
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+`;
+
+const UserLink = styled(Link)`
+  position: relative;
+  z-index: 1;
 `;
 
 const UserContainer = styled.div`
