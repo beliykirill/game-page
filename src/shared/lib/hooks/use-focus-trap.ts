@@ -7,11 +7,6 @@ interface Options {
   onEscape?: () => void;
 }
 
-/**
- * Traps keyboard focus inside `ref` while it is mounted:
- * focuses the first element on mount, cycles Tab within the container,
- * closes on Escape and restores focus to the previously focused element.
- */
 export const useFocusTrap = (
   ref: RefObject<HTMLElement | null>,
   { onEscape }: Options = {},
