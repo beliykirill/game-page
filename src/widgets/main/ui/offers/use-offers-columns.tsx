@@ -41,7 +41,7 @@ export const useOffersColumns = (t: TFunction) => {
         cell: ({ row, getValue }) => (
           <OfferLink href={`/offers/${row.original.id}`}>
             <CellLeftContainer>
-              <MainText>{getValue()}</MainText>
+              <SecondaryText $textTheme="regular">{getValue()}</SecondaryText>
             </CellLeftContainer>
           </OfferLink>
         ),
@@ -97,7 +97,7 @@ export const useOffersColumns = (t: TFunction) => {
 
                 <UserInformationContainer>
                   <UserTextContainer>
-                    <UserNameText $textTheme="semi" $isOnline={isOnline}>
+                    <UserNameText $textTheme="medium" $isOnline={isOnline}>
                       {name}
                     </UserNameText>
 
@@ -217,6 +217,10 @@ const UserNameText = styled(SecondaryText)<{ $isOnline: boolean }>`
 `;
 
 const OfferLink = styled(Link)`
+  ${SecondaryText} {
+    color: ${color('textPrimary')};
+  }
+
   &::after {
     content: '';
     position: absolute;

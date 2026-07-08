@@ -121,6 +121,7 @@ export const GlobalStyle = createGlobalStyle`
         width: 100%;
         height: 100%;
         overflow: hidden auto;
+        padding-top: 56px;
         font-family: 'Inter', sans-serif;
         background-color: ${(p) => p.theme.surfaceBackground};
         color: ${(p) => p.theme.textMain};

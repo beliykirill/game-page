@@ -4,6 +4,10 @@ import { ifProp } from 'styled-tools';
 import { color, media } from 'shared/lib/themes';
 
 export const Layout = styled.header`
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
   height: 56px;
   width: 100%;
   border-bottom: 1px solid ${color('surfaceBorder')};

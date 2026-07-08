@@ -100,6 +100,12 @@ const TableContainer = styled.div`
     background: ${color('surfaceMain')};
   }
 
+  tbody::before {
+    content: '';
+    display: table-row;
+    height: 12px;
+  }
+
   ${media.mobile} {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
@@ -135,9 +141,26 @@ const TableRow = styled.tr`
   transition: 0.2s ease-in-out;
 
   td {
-    padding: 8px 0;
+    padding: 16px 8px;
     border-bottom: 1px solid ${color('surfaceBorder')};
     transition: background 0.15s ease-in-out;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      width: 100%;
+      height: calc(100% - 16px);
+      top: 50%;
+      transform: translateY(-50%);
+      border-radius: 8px;
+      background: rgba(247, 247, 247, 0.64);
+      z-index: -1;
+      pointer-events: none;
+      transition: 0.2s ease-in-out;
+      visibility: hidden;
+    }
   }
 
   &:last-child td {
@@ -149,8 +172,9 @@ const TableRow = styled.tr`
   }
 
   @media (hover: hover) {
-    &:hover td {
-      background: rgba(247, 247, 247, 0.64);
+    &:hover td::after {
+      opacity: 1;
+      visibility: visible;
     }
   }
 
